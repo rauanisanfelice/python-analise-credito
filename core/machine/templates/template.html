@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset='utf-8' />
+        <title>{% block page_title %}{% endblock %}</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'plugins/bootstrap-4.3.1/css/bootstrap.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'plugins/fontawesome-free/css/all.css' %}">
+        
+        {% block header %}{% endblock %} 
+
+    </head>
+
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="{% url 'index' %}">Inicio</a>
+        </nav><br>
+        
+        {% comment %} body {% endcomment %}
+        <div class="container-fluid">
+            <div class="row justify-content-md-center">
+                <div class="col-12">
+                    {% block body %}
+                    {% endblock body %}
+                </div>
+            </div>
+        </div>
+
+        <script src="{% static 'plugins/jquery-3.4.1/js/jquery-3.4.1.min.js' %}"></script>
+        <script src="{% static 'plugins/bootstrap-4.3.1/js/bootstrap.js' %}"></script>
+        <script src="{% static 'plugins/jquery-mask/js/jquery.mask.js' %}"></script>
+        
+        {% block script %}{% endblock %}
+
+    </body>
+</html>

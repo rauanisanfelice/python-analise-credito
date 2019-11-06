@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block page_title %}Teste{% endblock %}
+
+{% block header %}
+{% endblock header %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"><b>Realizar análise de crédito!</b></h5>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                    <form method="POST" action="{% url 'validacao' %}">
+                        {% csrf_token %}
+                        {{ AnaliseForm|bootstrap }}
+                        <div class="row justify-content-center">
+                            <input class="btn btn-lg btn-outline-success" type="submit" value="Testar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
+{% block script %}
+{% endblock script %}
