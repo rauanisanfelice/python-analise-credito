@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  python-analise-postgre:
+    image: postgres:10
+    container_name: "python-analise-cred-postgre"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=docker123
+    ports:
+      - 5432:5432
+    volumes:
+      - python-analise-volume:/var/lib/postgresql/data:rw
+    networks:
+      - python-analise-network
+
+  python-analise-pgadmin:
+    image: dpage/pgadmin4
+    container_name: "python-analise-cred-pgadmin"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - 80:80
+    depends_on:
+      - python-analise-postgre
+    networks:
+      - python-analise-network
+
+networks:
+  python-analise-network:
+    driver: bridge
+
+volumes:
+  python-analise-volume:
