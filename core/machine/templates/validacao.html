@@ -13,17 +13,42 @@
             <hr>
             <div class="row">
                 <div class="col-12">
-                    {% if sucess %}
-                        <div class="alert alert-success" role="alert">
-                            {{ sucess }}
+                    {% csrf_token %}
+                    {% if retorno.0 == 0 %}
+                        <div class="row justify-content-center">
+                            <div class="card col-6 border border-secondary alert-success">
+                                <div class="card-body">
+                                    <h5 class="card-title">Resultado</h5>
+                                    <p class="card-text">Libera a verba!</p>
+                                    <p class="card-text font-weight-bold" id="percentual">{{ acuracia.0 }}% de compatibilidade</p>
+                                </div>
+                            </div>
                         </div>
                     {% endif %}
+
+                    {% if retorno.0 == 1 %}
+                        <div class="row justify-content-center">
+                            <div class="card col-6 border border-secondary alert-danger">
+                                <div class="card-body">
+                                    <h5 class="card-title">Resultado</h5>
+                                    <p class="card-text">Não emprestar!</p>
+                                    <p class="card-text font-weight-bold" id="percentual">{{ acuracia.0 }}% de compatibilidade</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
                     
                     {% if erro %}
                         <div class="alert alert-warning" role="alert">
                             {{ erro }}
                         </div>
                     {% endif %}
+                    
+                    <div class="row justify-content-end">
+                        <a href="{% url 'index' %}" style="margin-right: 20px;" class="col-1 btn btn-sm btn-outline-secondary">Voltar</a>
+                    </div>
+
                 </div>
             </div>
         </div>
