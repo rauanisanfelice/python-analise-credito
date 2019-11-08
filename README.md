@@ -73,7 +73,7 @@ python3 manage.py migrate
 python3 manage.py runserver
 ```
 
-## Detalhes dos testes:
+## Testes realizados:
 
 Foi realizado teste com 5 algoritmos de Machine Learning de Classificação:
 
