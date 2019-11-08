@@ -33,10 +33,10 @@ Realize o login:
 
 Clique em: Create >> Server
 
-Conecte no Banco com os seguintes parametros:
+Conecte no Banco com os seguintes parâmetros:
 
 Name: **#nome desejado#**
-| Parametros | Configurações |
+| Parâmetros | Configurações |
 |:--|:--|
 | Host | python-analise-postgre |
 | Port | 5432 |
@@ -56,7 +56,7 @@ virtualenv env
 source ./venv/bin/activate
 ```
 
-5. Instalando as dependencias
+5. Instalando as dependências
 
 ```
 pip3 install -r requirements.txt
@@ -73,12 +73,33 @@ python3 manage.py migrate
 python3 manage.py runserver
 ```
 
+## Detalhes dos testes:
+
+Foi realizado teste com 5 algoritmos de Machine Learning de Classificação:
+
+> Teste_Algoritmos.ipynb
+
+* KNN;
+* SVM;
+* NAIVE BAYES;
+* DECISION TREE;
+* MLP.
+
+## Tabelas de resultados:
+| Algoritmo | Seed | Best Acurácia |
+|:--|:--:|:--:|
+| KNN | 905 | 81.61% |
+| DECISION TREE | 269 | 80.83% |
+| SVM | 49  | 78.76% |
+| MLP | 210 | 78.5% |
+| NAIVE BAYES | 28  | 37.05% |
+
+O KNN por ter retornado a melhor acurácia foi utilizado no aplicativo
 
 ## Tabelas de classificação:
-
 ### Renda
 | Faixa | Numero |
-|:--|:--|
+|:--:|:--:|
 | < 20k | 0 |
 | 20k - 30k | 1 |
 | 30k - 40k | 2 |
@@ -89,15 +110,14 @@ python3 manage.py runserver
 
 ### Idade
 | Faixa | Numero |
-
-|:--|:--|
+|:--:|:--:|
 | 18 - 25 | 0 |
 | 25 - 60 | 1 |
 | > 60 | 2 |
 
-### Emprestimo
+### Empréstimo
 | Faixa | Numero |
-|:--|:--|
+|:--:|:--:|
 | < 20k | 0 |
 | 2k - 4k | 1 |
 | 4k - 6k | 2 |
@@ -106,3 +126,16 @@ python3 manage.py runserver
 | 10k - 12k | 5 |
 | 14k - 16k | 6 |
 | > 16k | 7 |
+
+
+## Links
+
+[Panda Sample](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sample.html)  
+
+[SKLearn DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html)  
+[SKLearn GridSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)  
+[SKLearn Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html)  
+[SKLearn SVM/SVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html)  
+[SKLearn KNN](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)  
+[SKLearn Decision Tree Classifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html)  
+[SKLearn Dump Models](https://scikit-learn.org/stable/modules/model_persistence.html)  
